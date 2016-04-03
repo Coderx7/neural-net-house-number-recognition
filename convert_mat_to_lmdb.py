@@ -15,6 +15,7 @@ import numpy as np
 from scipy import io
 import lmdb
 import caffe
+import random
 
 def main():
     if len(sys.argv) != 3:
@@ -42,13 +43,17 @@ def main():
     print "Converting", sys.argv[1] + "..."
 
     with env.begin(write=True) as database:
-        for i in range(N):
+
+        r = list(range(N))
+        random.shuffle(r)
+
+        for i in r:
             datum = caffe.proto.caffe_pb2.Datum()
             datum.channels = X.shape[1]
             datum.height = X.shape[2]
             datum.width = X.shape[3]
             datum.data = X[i].tostring()
-            datum.label = int(y[i])
+            datum.label = int(y[i]) - 1
 
             str_id = '{:08}'.format(i)
 
