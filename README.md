@@ -48,6 +48,16 @@ a coincidence with our image size (32x32).
 It should run very quickly on a g2.2 EC2 instance and save that file. You can
 then inspect it with the (rough) process_predictions.py.
 
+### Where we go from here:
+
+- We would like a more structured, versatile Python program to iterate over the
+entire fullsize image folder, create the suggested bbox csv file, and also read
+the dataset's labels/bboxes for storage in another file.
+- We would like some basic way to determine how well we're doing at recognition+classification. That involves comparing *all bounding boxes and all labels* of our data with *all bounding boxes
+and all labels* provided to us in the full SVHN dataset.
+- We would like higher than 91% accuracy in our digit classifier.
+- We would like a neat folder architecture such that the entire git repository
+can be cloned directly into Caffe ready to run.
 
 
 Notes 3/19:
