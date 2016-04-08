@@ -15,7 +15,7 @@ associated with the recognition task outlined below.
 Also note that because the image data is around 300mb, it is not hosted here, so it must
 be generated with convert_mat_to_lmdb.py.
 
-- Prerequisite: A .caffemodel file trained on the SVHN dataset. Use the cifar10
+- Prerequisite: A .caffemodel file trained on the SVHN dataset. You can use the file titled "SVHN_9144acc_quick_5000.caffemodel.h5" or generate it yourself: Use the cifar10
 model, but with our data and our mean image binaryproto file.
 - Follow the general outline here: https://github.com/BVLC/caffe/blob/master/examples/detection.ipynb
 - Instead of the referenced Matlab selective search module, we'll use
