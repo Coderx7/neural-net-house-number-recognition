@@ -8,10 +8,10 @@ layer {
     phase: TRAIN
   }
   transform_param {
-    mean_file: "examples/svhn-trial/mean.binaryphoto"
+    mean_file: "mean.binaryphoto"
   }
   data_param {
-    source: "examples/svhn-trial/svhn_train_lmdb"
+    source: "hnr_train_lmdb"
     batch_size: 100
     backend: LMDB
   }
@@ -25,10 +25,10 @@ layer {
     phase: TEST
   }
   transform_param {
-    mean_file: "examples/svhn-trial/mean.binaryphoto"
+    mean_file: "mean.binaryphoto"
   }
   data_param {
-    source: "examples/svhn-trial/svhn_test_lmdb"
+    source: "hnr_test_lmdb"
     batch_size: 100
     backend: LMDB
   }
