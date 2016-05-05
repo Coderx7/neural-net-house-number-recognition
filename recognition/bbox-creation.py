@@ -3,6 +3,7 @@ import skimage.data
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import selectivesearch
+import glob
 
 ### From selectivesearch (https://github.com/AlpacaDB/selectivesearch)
 ### Modified by Alex King
@@ -20,11 +21,12 @@ def main():
 
     csv = open("bboxes.csv", "w")
     csv.write("filename,ymin,xmin,ymax,xmax\n")
+    images = glob.iglob('test/*.png')
 
-    for i in range(100, 121):
+    for i in images:
 
         # loading lena image
-        img = skimage.io.imread("nums/" + str(i) + ".png")
+        img = skimage.io.imread(i)
         # img = skimage.data.astronaut()
 
         # perform selective search
@@ -52,7 +54,7 @@ def main():
         fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(6, 6))
         ax.imshow(img)
         for x, y, w, h in candidates:
-            print x, y, w, h
+            #print x, y, w, h
             csv.write('"nums/' + str(i) + '.png",' + str(y) + "," + str(x) + \
                       "," + str(y + h) + "," + str(x + w) + "\n")
 
@@ -61,7 +63,7 @@ def main():
             ax.add_patch(rect)
 
         plt.show()
-        plt.savefig("nums/" + str(i) + "boxes.png")
+        #plt.savefig("nums/" + str(i) + "boxes.png")
         plt.close()
 
 if __name__ == "__main__":
