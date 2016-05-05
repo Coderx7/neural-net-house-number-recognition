@@ -37,8 +37,7 @@ The following command:
 Does a few things:
 
 - Run "detect" (what we want) in "list" mode (what we need to use). 
-- It points
-to a model created after 5000 training iterations. It points to a model definition.
+- It points to a model created after 5000 training iterations. It points to a model definition.
 This example has "cifar10", but make sure it's pointing towards your svhn training
 directory files. 
 - Sets "context_pad" to 5. The default of 16 caused a DivisionByZero error because of
